@@ -1,0 +1,132 @@
+/* App.css - تنسيقات واجهة مشروع AMAN AI باللغتين مع دعم RTL و Footer */
+
+body {
+  margin: 0;
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+  direction: ltr;
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.header {
+  text-align: center;
+  background-color: #ffffff;
+  color: #002147;
+  padding: 2rem 1rem 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #002147;
+}
+
+.header p {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  color: #444;
+}
+
+.lang-toggle {
+  margin-top: 1rem;
+  background-color: #f4c542;
+  border: none;
+  padding: 8px 16px;
+  font-weight: bold;
+  color: #002147;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.section {
+  max-width: 700px;
+  margin: 2rem auto;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.section h2 {
+  color: #002147;
+  margin-bottom: 1.5rem;
+}
+
+form label {
+  font-weight: bold;
+  color: #002147;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+button[type="submit"],
+.button-primary {
+  background-color: #002147;
+  color: #f4c542;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: #002147;
+  border: 2px solid #002147;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.result-box {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #002147;
+  border-radius: 8px;
+  background-color: #f4c54210;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #002147;
+  color: white;
+  margin-top: 4rem;
+}
+
+.footer a {
+  color: #f4c542;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #eee;
+}
