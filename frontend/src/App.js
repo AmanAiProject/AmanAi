@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import AdminDashboard from "./components/AdminDashboard";
+
 
 // الصفحة الرئيسية
 const Home = ({ lang, toggleLang }) => {
@@ -102,12 +104,9 @@ const Contact = ({ lang }) => (
 );
 
 // صفحة الأدمن
-const Admin = ({ lang }) => (
-  <div className="section">
-    <h2>{lang === 'ar' ? 'لوحة التحكم' : 'Admin Dashboard'}</h2>
-    <p>{lang === 'ar' ? 'هذه الصفحة مخصصة للإدارة فقط.' : 'This page is for administrators only.'}</p>
-  </div>
-);
+
+const Admin = ({ lang }) => <AdminDashboard lang={lang} />;
+
 
 // الفوتر
 const Footer = ({ lang }) => (
