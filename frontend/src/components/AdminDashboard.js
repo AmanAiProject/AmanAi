@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const DEV_AUTH = true;            
+
+const DEV_AUTH = true;
 const DEV_USER = "admin";
 const DEV_PASS = "1234";
 
 const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:8000";
+
 export default function AdminDashboard() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
@@ -16,14 +18,16 @@ export default function AdminDashboard() {
   const [loadingTable, setLoadingTable] = useState(false);
   const [error, setError] = useState("");
 
-  const API_BASE = "http://localhost:8000";
-
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
     setAuthLoading(true);
     try {
-      
+      if (DEV_AUTH) {
+        if (username === DEV_USER && password === DEV_PASS) setLoggedIn(true);
+        else setError("بيانات الدخول غير صحيحة");
+        return;
+      }
       const res = await axios.post(`${API_BASE}/auth/login`, { username, password });
       if (res.status === 200) setLoggedIn(true);
       else setError("بيانات الدخول غير صحيحة");
@@ -38,6 +42,15 @@ export default function AdminDashboard() {
     setLoadingTable(true);
     setError("");
     try {
+      if (DEV_AUTH) {
+        const mock = {
+          "trusted-senders": [{ id: 1, name: "SNB", phone: "920001000", email: "info@snb.com" }],
+          messages: [{ id: 101, sender: "ALRAJHI", content: "مثال رسالة", timestamp: "2025-10-29" }],
+          logs: [{ id: 1001, action: "LOGIN", by: "admin", at: "2025-10-29 22:10" }]
+        };
+        setData(mock[table] || []);
+        return;
+      }
       const { data } = await axios.get(`${API_BASE}/db/${table}`);
       setData(data.rows || []);
     } catch {
@@ -50,10 +63,8 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     if (loggedIn) fetchTable(activeTable);
-    // eslint-disable-next-line
   }, [loggedIn, activeTable]);
 
- 
   if (!loggedIn) {
     const logoClass = `auth-logo logo-glow ${authLoading ? "logo-spin" : ""}`;
     return (
@@ -61,13 +72,11 @@ export default function AdminDashboard() {
         <div className="auth-card glass">
           <div className="auth-head">
             <div className={logoClass}>
-             
               <img src="/logo.png" alt="AMAN AI Logo" />
             </div>
             <h2>تسجيل دخول الأدمن</h2>
             <p>دخول آمن لإدارة البيانات (قراءة فقط حاليًا)</p>
           </div>
-
           <form onSubmit={handleLogin} className="auth-form">
             <div className="field">
               <label>اسم المستخدم</label>
@@ -80,7 +89,6 @@ export default function AdminDashboard() {
                 disabled={authLoading}
               />
             </div>
-
             <div className="field">
               <label>كلمة المرور</label>
               <input
@@ -93,14 +101,11 @@ export default function AdminDashboard() {
                 disabled={authLoading}
               />
             </div>
-
             {error && <div className="alert error">{error}</div>}
-
             <button type="submit" className="btn btn-primary full" disabled={authLoading}>
               {authLoading ? "جارٍ التحقق..." : "دخول"}
             </button>
           </form>
-
           <div className="auth-meta">
             <small>© {new Date().getFullYear()} AMAN AI • أمن المعلومات أولًا</small>
           </div>
@@ -109,7 +114,6 @@ export default function AdminDashboard() {
     );
   }
 
-  
   return (
     <div className="admin-shell rtl">
       <aside className="admin-sidebar">
@@ -119,7 +123,6 @@ export default function AdminDashboard() {
           </div>
           <div className="brand">AMAN AI</div>
         </div>
-
         <nav className="menu">
           <button
             className={`menu-item ${activeTable === "trusted-senders" ? "active" : ""}`}
@@ -140,14 +143,12 @@ export default function AdminDashboard() {
             السجلات (Logs)
           </button>
         </nav>
-
         <div className="sidebar-foot">
           <button className="btn btn-ghost" onClick={() => setLoggedIn(false)}>
             تسجيل الخروج
           </button>
         </div>
       </aside>
-
       <main className="admin-main">
         <header className="admin-header">
           <h2>
@@ -157,10 +158,8 @@ export default function AdminDashboard() {
           </h2>
           <div className="badge">قراءة فقط</div>
         </header>
-
         <section className="admin-content">
           {error && <div className="alert error">{error}</div>}
-
           {loadingTable ? (
             <div className="skeleton-table" aria-label="loading">
               <div className="bar" />
