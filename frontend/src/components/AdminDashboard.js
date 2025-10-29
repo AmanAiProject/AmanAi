@@ -49,7 +49,7 @@ export default function AdminDashboard() {
     // eslint-disable-next-line
   }, [loggedIn, activeTable]);
 
-  /* ===== شاشة تسجيل الدخول ===== */
+ 
   if (!loggedIn) {
     const logoClass = `auth-logo logo-glow ${authLoading ? "logo-spin" : ""}`;
     return (
@@ -57,7 +57,7 @@ export default function AdminDashboard() {
         <div className="auth-card glass">
           <div className="auth-head">
             <div className={logoClass}>
-              {/* ضع شعارك الرسمي في public/logo.png */}
+             
               <img src="/logo.png" alt="AMAN AI Logo" />
             </div>
             <h2>تسجيل دخول الأدمن</h2>
@@ -105,7 +105,7 @@ export default function AdminDashboard() {
     );
   }
 
-  /* ===== لوحة الأدمن ===== */
+  
   return (
     <div className="admin-shell rtl">
       <aside className="admin-sidebar">

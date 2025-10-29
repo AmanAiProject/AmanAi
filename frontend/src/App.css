@@ -1,4 +1,4 @@
-/* App.css - تنسيقات واجهة مشروع AMAN AI باللغتين مع دعم RTL و Footer */
+
 
 body {
   margin: 0;
@@ -130,14 +130,14 @@ button[type="submit"],
   font-size: 0.9rem;
   color: #eee;
 }
-/* ====== Admin Modern UI ====== */
+
 :root{
   --bg:#0b1420;
   --card:#ffffff;
   --ink:#0f2942;
   --ink-2:#244764;
-  --brand:#0b2a4a;   /* الأزرق */
-  --accent:#f4c542;  /* الذهبي */
+  --brand:#0b2a4a;  
+  --accent:#f4c542;  
   --muted:#7b8794;
   --line:#e9eef3;
   --shadow: 0 10px 30px rgba(15,41,66,0.08);
@@ -145,7 +145,7 @@ button[type="submit"],
 
 .rtl { direction: rtl; }
 
-/* شاشة تسجيل الدخول */
+
 .admin-wrap{
   min-height: calc(100dvh - 140px);
   display:flex; align-items:center; justify-content:center;
@@ -195,7 +195,7 @@ button[type="submit"],
 .btn-ghost{ background: transparent; color: var(--ink-2); border-color: transparent; }
 .auth-meta{ margin-top: 14px; text-align: center; color: var(--muted); }
 
-/* هيكل لوحة الأدمن */
+
 .admin-shell{ display:flex; min-height: calc(100dvh - 140px); background:#f6f9fc; }
 .admin-sidebar{
   width:280px; background:#0d2340; color:#fff; display:flex; flex-direction:column; padding:18px;
@@ -223,7 +223,7 @@ button[type="submit"],
   background:#ffffff; border:1px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow);
 }
 
-/* جدول حديث */
+
 .table-wrap{ overflow:auto; }
 .table-modern{ width:100%; border-collapse: collapse; }
 .table-modern thead th{
@@ -233,7 +233,7 @@ button[type="submit"],
 .table-modern tbody td{ padding: 10px; border-bottom:1px solid var(--line); color:#1e2b39; }
 .table-modern tbody tr:hover{ background:#f9fbfe; }
 
-/* حالة تحميل */
+
 .skeleton-table{ display:grid; gap: 10px; }
 .skeleton-table .bar{
   height: 42px; border-radius: 10px; background: linear-gradient(90deg,#eef2f6 0%,#f5f8fb 50%,#eef2f6 100%);
@@ -241,15 +241,15 @@ button[type="submit"],
 }
 @keyframes pulse{ 0%{opacity:.7} 50%{opacity:1} 100%{opacity:.7} }
 
-/* شاشة فارغة */
+
 .empty{ text-align:center; color: var(--muted); display:grid; gap:10px; }
-/* ===== Logo Glow + Spin (Saudi theme) ===== */
+
 :root{
-  --saudi:#006c35;            /* أخضر وطني */
-  --glow: rgba(0,108,53,0.35);/* ظل توهج */
+  --saudi:#006c35;            
+  --glow: rgba(0,108,53,0.35);
 }
 
-/* إطار الشعار */
+
 .auth-logo{
   display:inline-flex; align-items:center; justify-content:center;
   width:88px; height:88px; margin-bottom: 10px;
@@ -257,7 +257,7 @@ button[type="submit"],
   position: relative;
 }
 
-/* الصورة نفسها */
+
 .auth-logo img{
   width: 100%; height: 100%;
   border-radius: 20px;
@@ -267,12 +267,12 @@ button[type="submit"],
   transition: box-shadow .25s ease, transform .25s ease, filter .25s ease;
 }
 
-/* توهج نبضي دائم */
+
 .logo-glow img{
   animation: logoGlow 2.6s ease-in-out infinite;
 }
 
-/* دوران أثناء التحميل */
+
 .logo-spin img{
   animation:
     logoGlow 2.6s ease-in-out infinite,
@@ -280,14 +280,14 @@ button[type="submit"],
   filter: drop-shadow(0 0 10px rgba(0,108,53,.25));
 }
 
-/* كارد جانبي للشعار بعد الدخول */
+
 .sidebar-logo{
   display:flex; align-items:center; gap:10px;
   padding: 10px 12px; border-radius: 12px;
   background: #0f2a47; border:1px solid rgba(255,255,255,0.08);
 }
 
-/* مفاتيح الحركة */
+
 @keyframes logoGlow{
   0%   { box-shadow: 0 0 0px var(--glow); transform: translateZ(0) }
   50%  { box-shadow: 0 0 22px var(--glow); transform: translateZ(0) }
@@ -298,7 +298,7 @@ button[type="submit"],
   to   { transform: rotate(360deg) }
 }
 
-/* تحسين زر أساسي باللون الوطني عند التحويم */
+
 .btn-primary:hover{
   box-shadow: 0 10px 24px rgba(0,108,53,.18);
 }

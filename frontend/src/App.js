@@ -1,4 +1,3 @@
-// App.js - واجهة مشروع AMAN AI النهائية مع لغتين، صفحات، Footer، صفحة تواصل، و Admin
 
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -6,7 +5,7 @@ import './App.css';
 import AdminDashboard from "./components/AdminDashboard";
 
 
-// الصفحة الرئيسية
+
 const Home = ({ lang, toggleLang }) => {
   const [message, setMessage] = useState('');
   const [sender, setSender] = useState('');
@@ -94,7 +93,7 @@ const Home = ({ lang, toggleLang }) => {
   );
 };
 
-// صفحة تواصل
+
 const Contact = ({ lang }) => (
   <div className="section">
     <h2>{lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}</h2>
@@ -103,12 +102,9 @@ const Contact = ({ lang }) => (
   </div>
 );
 
-// صفحة الأدمن
-
 const Admin = ({ lang }) => <AdminDashboard lang={lang} />;
 
 
-// الفوتر
 const Footer = ({ lang }) => (
   <footer className="footer">
     <Link to="/">{lang === 'ar' ? 'الرئيسية' : 'Home'}</Link>
@@ -118,7 +114,7 @@ const Footer = ({ lang }) => (
   </footer>
 );
 
-// التطبيق الرئيسي
+
 function App() {
   const [lang, setLang] = useState('ar');
   const toggleLang = () => setLang(prev => (prev === 'ar' ? 'en' : 'ar'));
