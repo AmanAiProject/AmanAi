@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+const DEV_AUTH = true;            
+const DEV_USER = "admin";
+const DEV_PASS = "1234";
 
+const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:8000";
 export default function AdminDashboard() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
